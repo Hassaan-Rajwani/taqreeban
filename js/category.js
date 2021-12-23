@@ -1,5 +1,11 @@
-// var todo = localStorage.setItem("Category" , JSON.stringify([]))
 var todo = JSON.parse(localStorage.getItem("Category"))
+var todo = JSON.parse(localStorage.getItem("Expense"))
+if(todo == null){
+    todo = []
+}
+else{
+    var todo = JSON.parse(localStorage.getItem("Category"))
+}
 var table = document.getElementById("table2")
 neew()
 
@@ -21,7 +27,7 @@ function add(){
 }
 function  generate(){
     document.getElementById("table2").innerText = ""
-    for(var i = 0 ; i < todo.length ; i++) {
+    for(var i = 0; i < todo.length; i++){
         var tr = document.createElement("tr")
         var td1 = document.createElement("td")
         var td2 = document.createElement("td")
@@ -52,14 +58,3 @@ function dlttbtn(i){
         generate()
     }
 }
-
-// function cate(i){
-//     var category = JSON.parse(localStorage.getItem("Category"))
-//     var drop = document.getElementById("dropdown")
-//     for(var i = 0; i < category.length; i++){
-//         var op = document.createElement("option")
-//         var node = document.createTextNode(cate[i])
-//         op.appendChild(node)
-//         drop.appendChild(op)
-//     }
-// }

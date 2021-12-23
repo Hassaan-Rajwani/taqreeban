@@ -1,7 +1,12 @@
-// var user = localStorage.setItem("allUser" , JSON.stringify([]))
+var user = JSON.parse(localStorage.getItem("allUser"))
+if(user == null){
+    user = []
+}
+else{
+    var user = JSON.parse(localStorage.getItem("allUser"))
+}
 function app(){
     var userId = Math.floor(100000 + Math.random() * 900000)
-    var user = JSON.parse(localStorage.getItem("allUser"))
     var username = document.getElementById("exampleInputText1").value
     var usermail = document.getElementById("exampleInputEmail1").value
     var userpass = document.getElementById("exampleInputPassword1").value

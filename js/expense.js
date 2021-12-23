@@ -1,8 +1,12 @@
-// var todo2 = localStorage.setItem("Expense" , JSON.stringify([]))
 var category = JSON.parse(localStorage.getItem("Category"))
 var todo2 = JSON.parse(localStorage.getItem("Expense"))
+if(todo2 == null){
+    todo2 = []
+}
+else{
+    var todo2 = JSON.parse(localStorage.getItem("Expense"))
+}
 var table2 = document.getElementById("table")
-// neew()
 
 function add2(){    
     var id2 =  Math.floor(100000 + Math.random() * 900000)
@@ -25,7 +29,6 @@ function add2(){
     document.getElementById("exampleInputEmail1").value = ""
     document.getElementById("dropdown").value = ""
 }
-generate2()
 
 function  generate2(){
     document.getElementById("table").innerText = ""
@@ -50,16 +53,18 @@ function  generate2(){
             td3.appendChild(amnt)
             td4.appendChild(cate)
             td5.appendChild(time)
-                tr.appendChild(td1)
-                tr.appendChild(td2)
-                tr.appendChild(td3)
-                tr.appendChild(td4)
-                tr.appendChild(td5)
-                tr.appendChild(delBtn)
-                    table2.appendChild(tr)
+            tr.appendChild(td1)
+            tr.appendChild(td2)
+            tr.appendChild(td3)
+            tr.appendChild(td4)
+            tr.appendChild(td5)
+            tr.appendChild(delBtn)
+            table2.appendChild(tr)
+        }
     }
-}
-function neew(){
+    generate2()
+    
+    function neew(){
     var down = document.getElementById("dropdown")
     for(var i = 0; i < category.length; i++){
         var op = document.createElement("option")
@@ -68,7 +73,7 @@ function neew(){
         down.appendChild(op)
     }
 }
-neew()
+// neew()
 
 function dlttbtn(i){
     return function(){
@@ -77,4 +82,3 @@ function dlttbtn(i){
         generate2()
     }
 }
-start()
